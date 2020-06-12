@@ -1,13 +1,8 @@
-// fs module
-import { readJson, writeJson } from 'https://deno.land/std/fs/mod.ts';
+import { serve } from "https://deno.land/std/http/server.ts";
 
-const jsonObj = await readJson('ninjas.json');
-console.log(jsonObj);
+const server = serve({ port: 3000 });
+console.log('listening for requests on port 3000');
 
-const books = [
-    { title: 'the way of kings', author: 'brandon sanderson', },
-    { title: 'nameof the wind', author: 'patrick rothfuss' },
-];
-
-await writeJson('books.json', books, { spaces: 2 });
-console.log('created books.json');
+for await (const req of server) {
+    console.log('request made');
+}
