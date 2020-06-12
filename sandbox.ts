@@ -1,6 +1,6 @@
-// reading files
+// writing files
 
-const decoder = new TextDecoder('utf-8');
+const encoder = new TextEncoder();
+const text = encoder.encode('hello again, ninjas');
 
-const data = await Deno.readFile('readme.txt');
-console.log(decoder.decode(data));
+await Deno.writeFile('readme.txt', text);
