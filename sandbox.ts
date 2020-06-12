@@ -1,9 +1,6 @@
-// reading files
+// fetch api
 
-// const decoder = new TextDecoder('utf-8');
+const res = await fetch('https://swapi.dev/api/films');
+const data = await res.json();
 
-// const data = await Deno.readFile('readme.txt');
-// console.log(decoder.decode(data));
-
-const data = await Deno.readTextFile('readme.txt');
 console.log(data);
