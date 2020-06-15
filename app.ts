@@ -12,7 +12,11 @@ app.get('/', async (ctx: Context) => {
 
 app
     .get('/books', (ctx: Context) => {
-        ctx.string('all books');
+        ctx.json([
+            { title: 'blah' },
+            { title: 'blah blah' },
+            200 
+        ]);
      })
     .get('/books/:id', () => {})
     .post('/books', () => {})
